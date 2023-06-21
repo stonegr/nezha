@@ -83,6 +83,7 @@ type Config struct {
 		DashboardTheme string
 		CustomCode     string
 		ViewPassword   string // 前台查看密码
+		Redirect_url   string // 登录成功后跳转的路径
 	}
 	Oauth2 struct {
 		Type         string
@@ -130,6 +131,9 @@ func (c *Config) Read(path string) error {
 	}
 	if c.Site.DashboardTheme == "" {
 		c.Site.DashboardTheme = "default"
+	}
+	if c.Site.Redirect_url == "" {
+		c.Site.Redirect_url = "/"
 	}
 	if c.Language == "" {
 		c.Language = "zh-CN"

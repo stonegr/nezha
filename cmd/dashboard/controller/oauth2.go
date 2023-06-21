@@ -217,6 +217,6 @@ func (oa *oauth2controller) callback(c *gin.Context) {
 	singleton.DB.Save(&user)
 	c.SetCookie(singleton.Conf.Site.CookieName, user.Token, 60*60*24, "", "", false, false)
 	c.HTML(http.StatusOK, "dashboard-"+singleton.Conf.Site.DashboardTheme+"/redirect", mygin.CommonEnvironment(c, gin.H{
-		"URL": "/",
+		"URL": singleton.Conf.Site.Redirect_url,
 	}))
 }

@@ -177,9 +177,9 @@
           "void",
           "zorin"].indexOf(str)
           > -1) {
-            return str;
+          return str;
         }
-        if (['openwrt','linux'].indexOf(str) > -1) {
+        if (['openwrt', 'linux'].indexOf(str) > -1) {
           return 'tux';
         }
         if (str == 'amazon') {
@@ -271,13 +271,13 @@
     const ws = new WebSocket(wsProtocol + '://' + window.location.host + '/ws');
     ws.onopen = function (evt) {
       canShowError = true;
-      $.suiAlert({
-        title: '{{tr "RealtimeChannelEstablished"}}',
-        description: '{{tr "GetTheLatestMonitoringDataInRealTime"}}',
-        type: 'success',
-        time: '2',
-        position: 'top-center',
-      });
+      // $.suiAlert({
+      //   title: '{{tr "RealtimeChannelEstablished"}}',
+      //   description: '{{tr "GetTheLatestMonitoringDataInRealTime"}}',
+      //   type: 'success',
+      //   time: '2',
+      //   position: 'top-center',
+      // });
     }
     ws.onmessage = function (evt) {
       const oldServers = statusCards.servers
